@@ -7972,7 +7972,7 @@ var pageToShow = function pageToShow(pageName) {
 
 var configValue = {
   showsSignMeUp: true,
-  showSpeakerSpeakingDays: false
+  showSpeakerSpeakingDays: true
 };
 
 var App = function App(_ref) {
@@ -8811,15 +8811,28 @@ var Speakers = function Speakers(_ref) {
 
   var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(true),
       speakingSunday = _useState2[0],
-      setSpeakingSunday = _useState2[1];
+      setSpeakingSunday = _useState2[1]; // const [speakerList, setSpeakerList] = useState([]);
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),
-      speakerList = _useState3[0],
-      setSpeakerList = _useState3[1];
 
-  var _useState4 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(true),
-      isLoading = _useState4[0],
-      setIsLoading = _useState4[1];
+  function speakersReducer(state, action) {
+    switch (action.type) {
+      case "setSpeakerList":
+        {
+          return action.data;
+        }
+
+      default:
+        return state;
+    }
+  }
+
+  var _useReducer = Object(react__WEBPACK_IMPORTED_MODULE_1__["useReducer"])(speakersReducer, []),
+      speakerList = _useReducer[0],
+      dispatch = _useReducer[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(true),
+      isLoading = _useState3[0],
+      setIsLoading = _useState3[1];
 
   var context = Object(react__WEBPACK_IMPORTED_MODULE_1__["useContext"])(_App__WEBPACK_IMPORTED_MODULE_8__["ConfigContext"]);
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
@@ -8834,8 +8847,12 @@ var Speakers = function Speakers(_ref) {
         var sat = _ref2.sat,
             sun = _ref2.sun;
         return speakingSaturday && sat || speakingSunday && sun;
+      }); // setSpeakerList(speakerListServerFilter);
+
+      dispatch({
+        type: "setSpeakerList",
+        data: speakerListServerFilter
       });
-      setSpeakerList(speakerListServerFilter);
     });
     return function () {
       console.log("cleanup");
@@ -8883,7 +8900,7 @@ var Speakers = function Speakers(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75,
+      lineNumber: 90,
       columnNumber: 27
     }
   }, "Loading...");
@@ -8891,21 +8908,21 @@ var Speakers = function Speakers(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78,
+      lineNumber: 93,
       columnNumber: 9
     }
   }, __jsx(_Header__WEBPACK_IMPORTED_MODULE_4__["Header"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
+      lineNumber: 94,
       columnNumber: 13
     }
   }), __jsx(_Menu__WEBPACK_IMPORTED_MODULE_5__["Menu"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80,
+      lineNumber: 95,
       columnNumber: 13
     }
   }), __jsx("div", {
@@ -8913,7 +8930,7 @@ var Speakers = function Speakers(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81,
+      lineNumber: 96,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -8921,7 +8938,7 @@ var Speakers = function Speakers(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82,
+      lineNumber: 97,
       columnNumber: 17
     }
   }, context.showSpeakerSpeakingDays === false ? null : __jsx("div", {
@@ -8929,7 +8946,7 @@ var Speakers = function Speakers(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84,
+      lineNumber: 99,
       columnNumber: 25
     }
   }, __jsx("div", {
@@ -8937,7 +8954,7 @@ var Speakers = function Speakers(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85,
+      lineNumber: 100,
       columnNumber: 29
     }
   }, __jsx("label", {
@@ -8945,7 +8962,7 @@ var Speakers = function Speakers(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86,
+      lineNumber: 101,
       columnNumber: 33
     }
   }, __jsx("input", {
@@ -8956,7 +8973,7 @@ var Speakers = function Speakers(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87,
+      lineNumber: 102,
       columnNumber: 37
     }
   }), "Saturday Speakers")), __jsx("div", {
@@ -8964,7 +8981,7 @@ var Speakers = function Speakers(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 96,
+      lineNumber: 111,
       columnNumber: 29
     }
   }, __jsx("label", {
@@ -8972,7 +8989,7 @@ var Speakers = function Speakers(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 97,
+      lineNumber: 112,
       columnNumber: 33
     }
   }, __jsx("input", {
@@ -8983,7 +9000,7 @@ var Speakers = function Speakers(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 98,
+      lineNumber: 113,
       columnNumber: 37
     }
   }), "Sunday Speakers")))), __jsx("div", {
@@ -8991,7 +9008,7 @@ var Speakers = function Speakers(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110,
+      lineNumber: 125,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -8999,7 +9016,7 @@ var Speakers = function Speakers(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111,
+      lineNumber: 126,
       columnNumber: 21
     }
   }, speakerListFiltered.map(function (_ref4) {
@@ -9019,7 +9036,7 @@ var Speakers = function Speakers(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 115,
+        lineNumber: 130,
         columnNumber: 37
       }
     });

@@ -1900,7 +1900,7 @@ const pageToShow = pageName => {
 
 const configValue = {
   showsSignMeUp: true,
-  showSpeakerSpeakingDays: false
+  showSpeakerSpeakingDays: true
 };
 
 const App = ({
@@ -2697,11 +2697,24 @@ const Speakers = ({}) => {
   const {
     0: speakingSunday,
     1: setSpeakingSunday
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true);
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true); // const [speakerList, setSpeakerList] = useState([]);
+
+  function speakersReducer(state, action) {
+    switch (action.type) {
+      case "setSpeakerList":
+        {
+          return action.data;
+        }
+
+      default:
+        return state;
+    }
+  }
+
   const {
     0: speakerList,
-    1: setSpeakerList
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+    1: dispatch
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useReducer"])(speakersReducer, []);
   const {
     0: isLoading,
     1: setIsLoading
@@ -2720,8 +2733,12 @@ const Speakers = ({}) => {
         sun
       }) => {
         return speakingSaturday && sat || speakingSunday && sun;
+      }); // setSpeakerList(speakerListServerFilter);
+
+      dispatch({
+        type: "setSpeakerList",
+        data: speakerListServerFilter
       });
-      setSpeakerList(speakerListServerFilter);
     });
     return () => {
       console.log("cleanup");
@@ -2768,7 +2785,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75,
+      lineNumber: 90,
       columnNumber: 27
     }
   }, "Loading...");
@@ -2776,21 +2793,21 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78,
+      lineNumber: 93,
       columnNumber: 9
     }
   }, __jsx(_Header__WEBPACK_IMPORTED_MODULE_3__["Header"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
+      lineNumber: 94,
       columnNumber: 13
     }
   }), __jsx(_Menu__WEBPACK_IMPORTED_MODULE_4__["Menu"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80,
+      lineNumber: 95,
       columnNumber: 13
     }
   }), __jsx("div", {
@@ -2798,7 +2815,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81,
+      lineNumber: 96,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -2806,7 +2823,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82,
+      lineNumber: 97,
       columnNumber: 17
     }
   }, context.showSpeakerSpeakingDays === false ? null : __jsx("div", {
@@ -2814,7 +2831,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84,
+      lineNumber: 99,
       columnNumber: 25
     }
   }, __jsx("div", {
@@ -2822,7 +2839,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85,
+      lineNumber: 100,
       columnNumber: 29
     }
   }, __jsx("label", {
@@ -2830,7 +2847,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86,
+      lineNumber: 101,
       columnNumber: 33
     }
   }, __jsx("input", {
@@ -2841,7 +2858,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87,
+      lineNumber: 102,
       columnNumber: 37
     }
   }), "Saturday Speakers")), __jsx("div", {
@@ -2849,7 +2866,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 96,
+      lineNumber: 111,
       columnNumber: 29
     }
   }, __jsx("label", {
@@ -2857,7 +2874,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 97,
+      lineNumber: 112,
       columnNumber: 33
     }
   }, __jsx("input", {
@@ -2868,7 +2885,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 98,
+      lineNumber: 113,
       columnNumber: 37
     }
   }), "Sunday Speakers")))), __jsx("div", {
@@ -2876,7 +2893,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110,
+      lineNumber: 125,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -2884,7 +2901,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111,
+      lineNumber: 126,
       columnNumber: 21
     }
   }, speakerListFiltered.map(({
@@ -2905,7 +2922,7 @@ const Speakers = ({}) => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 115,
+        lineNumber: 130,
         columnNumber: 37
       }
     });
