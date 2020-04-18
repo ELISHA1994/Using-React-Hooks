@@ -2573,12 +2573,12 @@ const speakerData = [{
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _ImageToggleOnScroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ImageToggleOnScroll */ "./src/ImageToggleOnScroll.js");
+/* harmony import */ var _ImageToggleOnScroll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ImageToggleOnScroll */ "./src/ImageToggleOnScroll.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 var _jsxFileName = "/Users/elishabello/Desktop/Programming/React/nextjs_react_hooks/src/SpeakerDetail.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 const SpeakerDetail = ({
@@ -2595,10 +2595,10 @@ const SpeakerDetail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
+      lineNumber: 14,
       columnNumber: 9
     }
-  }, __jsx(_ImageToggleOnScroll__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, __jsx(_ImageToggleOnScroll__WEBPACK_IMPORTED_MODULE_0__["default"], {
     className: "card-img-top",
     primaryImg: `/static/speakers/bw/Speaker-${id}.jpg`,
     secondaryImg: `/static/speakers/Speaker-${id}.jpg`,
@@ -2606,7 +2606,7 @@ const SpeakerDetail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14,
+      lineNumber: 15,
       columnNumber: 13
     }
   }), __jsx("div", {
@@ -2614,7 +2614,7 @@ const SpeakerDetail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
+      lineNumber: 21,
       columnNumber: 13
     }
   }, __jsx("h4", {
@@ -2622,7 +2622,7 @@ const SpeakerDetail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 22,
       columnNumber: 17
     }
   }, __jsx("button", {
@@ -2634,21 +2634,21 @@ const SpeakerDetail = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22,
+      lineNumber: 23,
       columnNumber: 21
     }
   }), __jsx("span", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 30,
       columnNumber: 21
     }
   }, firstName, " ", lastName)), __jsx("span", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 35,
       columnNumber: 17
     }
   }, bio)));
@@ -2678,8 +2678,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SpeakerData__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./SpeakerData */ "./src/SpeakerData.js");
 /* harmony import */ var _SpeakerDetail__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./SpeakerDetail */ "./src/SpeakerDetail.js");
 /* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./App */ "./src/App.js");
+/* harmony import */ var _speakersReducer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./speakersReducer */ "./src/speakersReducer.js");
 var _jsxFileName = "/Users/elishabello/Desktop/Programming/React/nextjs_react_hooks/src/Speakers.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -2699,22 +2701,10 @@ const Speakers = ({}) => {
     1: setSpeakingSunday
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true); // const [speakerList, setSpeakerList] = useState([]);
 
-  function speakersReducer(state, action) {
-    switch (action.type) {
-      case "setSpeakerList":
-        {
-          return action.data;
-        }
-
-      default:
-        return state;
-    }
-  }
-
   const {
     0: speakerList,
     1: dispatch
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useReducer"])(speakersReducer, []);
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useReducer"])(_speakersReducer__WEBPACK_IMPORTED_MODULE_8__["default"], []);
   const {
     0: isLoading,
     1: setIsLoading
@@ -2771,21 +2761,24 @@ const Speakers = ({}) => {
   const heartFavoriteHandler = (e, favoriteValue) => {
     e.preventDefault();
     const sessionId = parseInt(e.target.attributes["data-sessionid"].value);
-    setSpeakerList(speakerList.map(item => {
-      if (item.id === sessionId) {
-        item.favorite = favoriteValue;
-        return item;
-      }
-
-      return item;
-    })); //console.log("changing session favorte to " + favoriteValue);
+    dispatch({
+      type: favoriteValue === true ? "favorite" : "unfavorite",
+      sessionId
+    }); // setSpeakerList(speakerList.map(item => {
+    //     if (item.id === sessionId) {
+    //         item.favorite = favoriteValue;
+    //         return item;
+    //     }
+    //     return item;
+    // }));
+    //console.log("changing session favorte to " + favoriteValue);
   };
 
   if (isLoading) return __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90,
+      lineNumber: 86,
       columnNumber: 27
     }
   }, "Loading...");
@@ -2793,21 +2786,21 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 93,
+      lineNumber: 89,
       columnNumber: 9
     }
   }, __jsx(_Header__WEBPACK_IMPORTED_MODULE_3__["Header"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 94,
+      lineNumber: 90,
       columnNumber: 13
     }
   }), __jsx(_Menu__WEBPACK_IMPORTED_MODULE_4__["Menu"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 95,
+      lineNumber: 91,
       columnNumber: 13
     }
   }), __jsx("div", {
@@ -2815,7 +2808,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 96,
+      lineNumber: 92,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -2823,7 +2816,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 97,
+      lineNumber: 93,
       columnNumber: 17
     }
   }, context.showSpeakerSpeakingDays === false ? null : __jsx("div", {
@@ -2831,7 +2824,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 99,
+      lineNumber: 95,
       columnNumber: 25
     }
   }, __jsx("div", {
@@ -2839,7 +2832,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 100,
+      lineNumber: 96,
       columnNumber: 29
     }
   }, __jsx("label", {
@@ -2847,7 +2840,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 101,
+      lineNumber: 97,
       columnNumber: 33
     }
   }, __jsx("input", {
@@ -2858,7 +2851,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102,
+      lineNumber: 98,
       columnNumber: 37
     }
   }), "Saturday Speakers")), __jsx("div", {
@@ -2866,7 +2859,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111,
+      lineNumber: 107,
       columnNumber: 29
     }
   }, __jsx("label", {
@@ -2874,7 +2867,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 112,
+      lineNumber: 108,
       columnNumber: 33
     }
   }, __jsx("input", {
@@ -2885,7 +2878,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 113,
+      lineNumber: 109,
       columnNumber: 37
     }
   }), "Sunday Speakers")))), __jsx("div", {
@@ -2893,7 +2886,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 125,
+      lineNumber: 121,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -2901,7 +2894,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 126,
+      lineNumber: 122,
       columnNumber: 21
     }
   }, speakerListFiltered.map(({
@@ -2922,7 +2915,7 @@ const Speakers = ({}) => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 130,
+        lineNumber: 126,
         columnNumber: 37
       }
     });
@@ -2930,6 +2923,52 @@ const Speakers = ({}) => {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Speakers);
+
+/***/ }),
+
+/***/ "./src/speakersReducer.js":
+/*!********************************!*\
+  !*** ./src/speakersReducer.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function speakersReducer(state, action) {
+  function updateFavorite(favoriteValue) {
+    return state.map((item, index) => {
+      if (item.id === action.sessionId) {
+        item.favorite = favoriteValue;
+        return item;
+      }
+
+      return item;
+    });
+  }
+
+  switch (action.type) {
+    case "setSpeakerList":
+      {
+        return action.data;
+      }
+
+    case "favorite":
+      {
+        return updateFavorite(true);
+      }
+
+    case "unfavorite":
+      {
+        return updateFavorite(false);
+      }
+
+    default:
+      return state;
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (speakersReducer);
 
 /***/ }),
 

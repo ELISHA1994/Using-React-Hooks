@@ -1,4 +1,5 @@
 import ImageToggleOnScroll from "./ImageToggleOnScroll";
+import React from "react";
 
 const SpeakerDetail = ({
                            id,
