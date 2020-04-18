@@ -7924,11 +7924,12 @@ function speakers() {
 /*!********************!*\
   !*** ./src/App.js ***!
   \********************/
-/*! exports provided: default */
+/*! exports provided: ConfigContext, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConfigContext", function() { return ConfigContext; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Home */ "./src/Home.js");
@@ -7940,13 +7941,14 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+var ConfigContext = react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext();
 
 var pageToShow = function pageToShow(pageName) {
   if (pageName === "Home") return __jsx(_Home__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6,
+      lineNumber: 8,
       columnNumber: 37
     }
   });
@@ -7954,7 +7956,7 @@ var pageToShow = function pageToShow(pageName) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7,
+      lineNumber: 9,
       columnNumber: 41
     }
   });
@@ -7962,22 +7964,35 @@ var pageToShow = function pageToShow(pageName) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8,
+      lineNumber: 10,
       columnNumber: 12
     }
   }, "Not Found");
 };
 
+var configValue = {
+  showsSignMeUp: true,
+  showSpeakerSpeakingDays: false
+};
+
 var App = function App(_ref) {
   var pageName = _ref.pageName;
-  return __jsx("div", {
+  return __jsx(ConfigContext.Provider, {
+    value: configValue,
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
-      columnNumber: 12
+      lineNumber: 20,
+      columnNumber: 9
     }
-  }, pageToShow(pageName));
+  }, __jsx("div", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 13
+    }
+  }, pageToShow(pageName)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -8408,12 +8423,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toastify/dist/ReactToastify.css */ "./node_modules/react-toastify/dist/ReactToastify.css");
 /* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/esm/react-toastify.js");
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./App */ "./src/App.js");
 
 
 var _this = undefined,
     _jsxFileName = "/Users/elishabello/Desktop/Programming/React/nextjs_react_hooks/src/SignMeUp.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
 
 
 
@@ -8437,6 +8454,8 @@ var SignMeUp = function SignMeUp(_ref) {
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(false),
       sendProcessing = _useState3[0],
       setSendProcessing = _useState3[1];
+
+  var context = Object(react__WEBPACK_IMPORTED_MODULE_1__["useContext"])(_App__WEBPACK_IMPORTED_MODULE_4__["ConfigContext"]);
 
   function validateEmail(email) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -8464,26 +8483,26 @@ var SignMeUp = function SignMeUp(_ref) {
 
   var buttonText = sendProcessing ? "processing..." : "Get Updates"; //console.log("src/SignMeUp called");
 
-  return __jsx("div", {
+  return context.showsSignMeUp === false ? null : __jsx("div", {
     className: "container",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
+      lineNumber: 46,
       columnNumber: 9
     }
   }, __jsx("div", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
+      lineNumber: 47,
       columnNumber: 13
     }
   }, __jsx(react_toastify__WEBPACK_IMPORTED_MODULE_3__["ToastContainer"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 48,
       columnNumber: 17
     }
   }), __jsx("div", {
@@ -8491,7 +8510,7 @@ var SignMeUp = function SignMeUp(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 49,
       columnNumber: 17
     }
   }, __jsx("input", (_jsx = {
@@ -8506,7 +8525,7 @@ var SignMeUp = function SignMeUp(_ref) {
     required: true
   }, Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_jsx, "required", true), Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_jsx, "__self", _this), Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_jsx, "__source", {
     fileName: _jsxFileName,
-    lineNumber: 47,
+    lineNumber: 50,
     columnNumber: 21
   }), _jsx)), "\xA0", __jsx("button", {
     disabled: !emailValid || sendProcessing,
@@ -8516,7 +8535,7 @@ var SignMeUp = function SignMeUp(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60,
+      lineNumber: 63,
       columnNumber: 21
     }
   }, buttonText))));
@@ -8767,12 +8786,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Menu__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Menu */ "./src/Menu.js");
 /* harmony import */ var _SpeakerData__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./SpeakerData */ "./src/SpeakerData.js");
 /* harmony import */ var _SpeakerDetail__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./SpeakerDetail */ "./src/SpeakerDetail.js");
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./App */ "./src/App.js");
 
 
 var _this = undefined,
     _jsxFileName = "/Users/elishabello/Desktop/Programming/React/nextjs_react_hooks/src/Speakers.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
 
 
 
@@ -8800,6 +8821,7 @@ var Speakers = function Speakers(_ref) {
       isLoading = _useState4[0],
       setIsLoading = _useState4[1];
 
+  var context = Object(react__WEBPACK_IMPORTED_MODULE_1__["useContext"])(_App__WEBPACK_IMPORTED_MODULE_8__["ConfigContext"]);
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
     setIsLoading(true);
     new Promise(function (resolve) {
@@ -8861,7 +8883,7 @@ var Speakers = function Speakers(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72,
+      lineNumber: 75,
       columnNumber: 27
     }
   }, "Loading...");
@@ -8869,21 +8891,21 @@ var Speakers = function Speakers(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75,
+      lineNumber: 78,
       columnNumber: 9
     }
   }, __jsx(_Header__WEBPACK_IMPORTED_MODULE_4__["Header"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76,
+      lineNumber: 79,
       columnNumber: 13
     }
   }), __jsx(_Menu__WEBPACK_IMPORTED_MODULE_5__["Menu"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77,
+      lineNumber: 80,
       columnNumber: 13
     }
   }), __jsx("div", {
@@ -8891,7 +8913,7 @@ var Speakers = function Speakers(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78,
+      lineNumber: 81,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -8899,32 +8921,32 @@ var Speakers = function Speakers(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
+      lineNumber: 82,
       columnNumber: 17
     }
-  }, __jsx("div", {
+  }, context.showSpeakerSpeakingDays === false ? null : __jsx("div", {
     className: "hide",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80,
-      columnNumber: 21
+      lineNumber: 84,
+      columnNumber: 25
     }
   }, __jsx("div", {
     className: "form-check-inline",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81,
-      columnNumber: 25
+      lineNumber: 85,
+      columnNumber: 29
     }
   }, __jsx("label", {
     className: "form-check-label",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82,
-      columnNumber: 29
+      lineNumber: 86,
+      columnNumber: 33
     }
   }, __jsx("input", {
     type: "checkbox",
@@ -8934,24 +8956,24 @@ var Speakers = function Speakers(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83,
-      columnNumber: 33
+      lineNumber: 87,
+      columnNumber: 37
     }
   }), "Saturday Speakers")), __jsx("div", {
     className: "form-check-inline",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 92,
-      columnNumber: 25
+      lineNumber: 96,
+      columnNumber: 29
     }
   }, __jsx("label", {
     className: "form-check-label",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 93,
-      columnNumber: 29
+      lineNumber: 97,
+      columnNumber: 33
     }
   }, __jsx("input", {
     type: "checkbox",
@@ -8961,15 +8983,15 @@ var Speakers = function Speakers(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 94,
-      columnNumber: 33
+      lineNumber: 98,
+      columnNumber: 37
     }
   }), "Sunday Speakers")))), __jsx("div", {
     className: "row",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 105,
+      lineNumber: 110,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -8977,7 +8999,7 @@ var Speakers = function Speakers(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 106,
+      lineNumber: 111,
       columnNumber: 21
     }
   }, speakerListFiltered.map(function (_ref4) {
@@ -8997,7 +9019,7 @@ var Speakers = function Speakers(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 110,
+        lineNumber: 115,
         columnNumber: 37
       }
     });
