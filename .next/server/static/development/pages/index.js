@@ -2737,7 +2737,7 @@ const Speakers = ({}) => {
     setSpeakingSaturday(!speakingSaturday);
   };
 
-  const speakerListFiltered = isLoading ? [] : speakerList.filter(({
+  const newSpeakerList = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(() => speakerList.filter(({
     sat,
     sun
   }) => speakingSaturday && sat || speakingSunday && sun).sort(function (a, b) {
@@ -2750,7 +2750,8 @@ const Speakers = ({}) => {
     }
 
     return 0;
-  });
+  }), [speakingSaturday, speakingSunday, speakerList]);
+  const speakerListFiltered = isLoading ? [] : newSpeakerList;
 
   const handleChangeSunday = () => {
     setSpeakingSunday(!speakingSunday);
@@ -2762,20 +2763,13 @@ const Speakers = ({}) => {
     dispatch({
       type: favoriteValue === true ? "favorite" : "unfavorite",
       sessionId
-    }); // setSpeakerList(speakerList.map(item => {
-    //     if (item.id === sessionId) {
-    //         item.favorite = favoriteValue;
-    //         return item;
-    //     }
-    //     return item;
-    // }));
-    //console.log("changing session favorte to " + favoriteValue);
+    });
   }, []);
   if (isLoading) return __jsx("div", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86,
+      lineNumber: 80,
       columnNumber: 27
     }
   }, "Loading...");
@@ -2783,21 +2777,21 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 89,
+      lineNumber: 83,
       columnNumber: 9
     }
   }, __jsx(_Header__WEBPACK_IMPORTED_MODULE_3__["Header"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90,
+      lineNumber: 84,
       columnNumber: 13
     }
   }), __jsx(_Menu__WEBPACK_IMPORTED_MODULE_4__["Menu"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91,
+      lineNumber: 85,
       columnNumber: 13
     }
   }), __jsx("div", {
@@ -2805,7 +2799,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 92,
+      lineNumber: 86,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -2813,7 +2807,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 93,
+      lineNumber: 87,
       columnNumber: 17
     }
   }, context.showSpeakerSpeakingDays === false ? null : __jsx("div", {
@@ -2821,7 +2815,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 95,
+      lineNumber: 89,
       columnNumber: 25
     }
   }, __jsx("div", {
@@ -2829,7 +2823,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 96,
+      lineNumber: 90,
       columnNumber: 29
     }
   }, __jsx("label", {
@@ -2837,7 +2831,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 97,
+      lineNumber: 91,
       columnNumber: 33
     }
   }, __jsx("input", {
@@ -2848,7 +2842,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 98,
+      lineNumber: 92,
       columnNumber: 37
     }
   }), "Saturday Speakers")), __jsx("div", {
@@ -2856,7 +2850,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 107,
+      lineNumber: 101,
       columnNumber: 29
     }
   }, __jsx("label", {
@@ -2864,7 +2858,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 108,
+      lineNumber: 102,
       columnNumber: 33
     }
   }, __jsx("input", {
@@ -2875,7 +2869,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 109,
+      lineNumber: 103,
       columnNumber: 37
     }
   }), "Sunday Speakers")))), __jsx("div", {
@@ -2883,7 +2877,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 121,
+      lineNumber: 115,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -2891,7 +2885,7 @@ const Speakers = ({}) => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 122,
+      lineNumber: 116,
       columnNumber: 21
     }
   }, speakerListFiltered.map(({
@@ -2912,7 +2906,7 @@ const Speakers = ({}) => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 126,
+        lineNumber: 120,
         columnNumber: 37
       }
     });
