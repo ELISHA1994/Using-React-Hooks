@@ -8689,15 +8689,14 @@ var _this = undefined,
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
-
-var SpeakerDetail = function SpeakerDetail(_ref) {
+var SpeakerDetail = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(function (_ref) {
   var id = _ref.id,
       firstName = _ref.firstName,
       lastName = _ref.lastName,
       favorite = _ref.favorite,
       bio = _ref.bio,
       onHeartFavoriteHandler = _ref.onHeartFavoriteHandler;
-  //console.log(`SpeakerDetail:${id} ${firstName} ${lastName} ${favorite}`);
+  console.log("SpeakerDetail:".concat(id, " ").concat(firstName, " ").concat(lastName, " ").concat(favorite));
   return __jsx("div", {
     className: "card col-4 cardmin",
     __self: _this,
@@ -8760,8 +8759,7 @@ var SpeakerDetail = function SpeakerDetail(_ref) {
       columnNumber: 17
     }
   }, bio)));
-};
-
+});
 /* harmony default export */ __webpack_exports__["default"] = (SpeakerDetail);
 
 /***/ }),
@@ -8873,7 +8871,7 @@ var Speakers = function Speakers(_ref) {
     setSpeakingSunday(!speakingSunday);
   };
 
-  var heartFavoriteHandler = function heartFavoriteHandler(e, favoriteValue) {
+  var heartFavoriteHandler = Object(react__WEBPACK_IMPORTED_MODULE_1__["useCallback"])(function (e, favoriteValue) {
     e.preventDefault();
     var sessionId = parseInt(e.target.attributes["data-sessionid"].value);
     dispatch({
@@ -8887,8 +8885,7 @@ var Speakers = function Speakers(_ref) {
     //     return item;
     // }));
     //console.log("changing session favorte to " + favoriteValue);
-  };
-
+  }, []);
   if (isLoading) return __jsx("div", {
     __self: _this,
     __source: {
@@ -9086,7 +9083,7 @@ function speakersReducer(state, action) {
 
 /***/ }),
 
-/***/ 1:
+/***/ 6:
 /*!***************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Felishabello%2FDesktop%2FProgramming%2FReact%2Fnextjs_react_hooks%2Fpages%2Findex.js ***!
   \***************************************************************************************************************************************************************/
@@ -9109,5 +9106,5 @@ module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js","styles"]]]);
+},[[6,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map

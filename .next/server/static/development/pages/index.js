@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -2580,8 +2580,7 @@ var _jsxFileName = "/Users/elishabello/Desktop/Programming/React/nextjs_react_ho
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
-
-const SpeakerDetail = ({
+const SpeakerDetail = react__WEBPACK_IMPORTED_MODULE_1___default.a.memo(({
   id,
   firstName,
   lastName,
@@ -2589,7 +2588,7 @@ const SpeakerDetail = ({
   bio,
   onHeartFavoriteHandler
 }) => {
-  //console.log(`SpeakerDetail:${id} ${firstName} ${lastName} ${favorite}`);
+  console.log(`SpeakerDetail:${id} ${firstName} ${lastName} ${favorite}`);
   return __jsx("div", {
     className: "card col-4 cardmin",
     __self: undefined,
@@ -2652,8 +2651,7 @@ const SpeakerDetail = ({
       columnNumber: 17
     }
   }, bio)));
-};
-
+});
 /* harmony default export */ __webpack_exports__["default"] = (SpeakerDetail);
 
 /***/ }),
@@ -2758,7 +2756,7 @@ const Speakers = ({}) => {
     setSpeakingSunday(!speakingSunday);
   };
 
-  const heartFavoriteHandler = (e, favoriteValue) => {
+  const heartFavoriteHandler = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])((e, favoriteValue) => {
     e.preventDefault();
     const sessionId = parseInt(e.target.attributes["data-sessionid"].value);
     dispatch({
@@ -2772,8 +2770,7 @@ const Speakers = ({}) => {
     //     return item;
     // }));
     //console.log("changing session favorte to " + favoriteValue);
-  };
-
+  }, []);
   if (isLoading) return __jsx("div", {
     __self: undefined,
     __source: {
@@ -2972,7 +2969,7 @@ function speakersReducer(state, action) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 5:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

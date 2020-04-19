@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext, useReducer} from "react";
+import React, {useState, useEffect, useContext, useReducer, useCallback} from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../public/static/site.css";
@@ -66,7 +66,7 @@ const Speakers = ({}) => {
         setSpeakingSunday(!speakingSunday);
     };
 
-    const heartFavoriteHandler = (e, favoriteValue) => {
+    const heartFavoriteHandler = useCallback((e, favoriteValue) => {
         e.preventDefault();
         const sessionId = parseInt(e.target.attributes["data-sessionid"].value);
         dispatch({
@@ -81,7 +81,7 @@ const Speakers = ({}) => {
         //     return item;
         // }));
         //console.log("changing session favorte to " + favoriteValue);
-    };
+    },[]);
 
     if (isLoading) return <div>Loading...</div>;
 
