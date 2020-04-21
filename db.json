@@ -4,16 +4,16 @@
       "id": 1530,
       "firstName": "Tammy",
       "lastName": "Baker",
+      "favorite": false,
+      "bio": "Tammy has held a number of executive and management roles over the past 15 years, including VP engineering Roles at Molekule Inc., Cantaloupe Systems, E-Color, and Untangle Inc.",
       "sat": false,
-      "sun": true,
-      "favorite": true,
-      "bio": "Tammy has held a number of executive and management roles over the past 15 years, including VP engineering Roles at Molekule Inc., Cantaloupe Systems, E-Color, and Untangle Inc."
+      "sun": true
     },
     {
       "id": 5996,
       "firstName": "Craig",
       "lastName": "Berntson",
-      "favorite": true,
+      "favorite": false,
       "bio": "Craig has a passion for community and helping other developers improve their skills. He writes the column \"Software Gardening\" in DotNet Curry Magazine and is the co-author of \"Continuous Integration in .NET\" available from Manning.",
       "sat": true,
       "sun": true
@@ -31,16 +31,16 @@
       "id": 1124,
       "firstName": "Douglas",
       "lastName": "Crockford",
-      "sat": true,
-      "sun": false,
       "favorite": true,
-      "bio": "Douglas Crockford discovered the JSON Data Interchange Format. He is also the author of _JavaScript: The Good Parts_. He has been called a guru, but he is actually more of a mahatma."
+      "bio": "Douglas Crockford discovered the JSON Data Interchange Format. He is also the author of _JavaScript: The Good Parts_. He has been called a guru, but he is actually more of a mahatma.",
+      "sat": true,
+      "sun": false
     },
     {
       "id": 41808,
       "firstName": "Paul",
       "lastName": "Everitt",
-      "favorite": true,
+      "favorite": false,
       "bio": "Paul is the PyCharm and WebStorm Developer Advocate at JetBrains. Before that, Paul was a partner at Agendaless Consulting and co-founder of Zope Corporation, taking the first open source application server through $14M of funding.",
       "sat": true,
       "sun": true
@@ -49,7 +49,7 @@
       "id": 1269,
       "firstName": "Arun",
       "lastName": "Gupta",
-      "favorite": true,
+      "favorite": false,
       "bio": "Arun Gupta is a Principal Open Source Technologist at Amazon Web Services. He has built and led developer communities for 12+ years at Sun, Oracle, Red Hat and Couchbase.",
       "sat": false,
       "sun": true
@@ -67,7 +67,7 @@
       "id": 18805,
       "firstName": "Mickey W.",
       "lastName": "Mantle",
-      "favorite": true,
+      "favorite": false,
       "bio": "Mickey has been developing software systems and products for over 40 years, as a systems programmer, Tech Lead, Manager, VP Engineering, CTO, COO, and now CEO/CTO of his own company.",
       "sat": true,
       "sun": true
@@ -85,7 +85,7 @@
       "id": 187,
       "firstName": "Dave",
       "lastName": "Nielsen",
-      "favorite": true,
+      "favorite": false,
       "bio": "As Head of Ecosystem Programs, Dave uses emerging technologies and open source projects like Microservices, Serverless & Kubernetes to bring the magic of Redis to the broader community.",
       "sat": true,
       "sun": true
@@ -94,10 +94,10 @@
       "id": 823,
       "firstName": "Kevin",
       "lastName": "Nilson",
+      "favorite": false,
+      "bio": "Team Lead of the Chromecast Technical Solutions Engineer team, a Java Champion and three time JavaOne Rock Star Presenter. Kevin has spoken at conferences such as JavaOne, Devoxx, JAX, O'Reilly Fluent, Silicon Valley Code Camp, JAX and HTML5DevConf.",
       "sat": false,
-      "sun": true,
-      "favorite": true,
-      "bio": "Team Lead of the Chromecast Technical Solutions Engineer team, a Java Champion and three time JavaOne Rock Star Presenter. Kevin has spoken at conferences such as JavaOne, Devoxx, JAX, O'Reilly Fluent, Silicon Valley Code Camp, JAX and HTML5DevConf."
+      "sun": true
     },
     {
       "id": 8590,
@@ -121,10 +121,10 @@
       "id": 6548,
       "firstName": "Steve",
       "lastName": "Souders",
-      "sat": true,
-      "sun": false,
       "favorite": true,
-      "bio": "Steve works at SpeedCurve on the interplay between performance and design. He previously served as Google's Head Performance Engineer, Chief Performance Yahoo!, and Chief Performance Officer at Fastly."
+      "bio": "Steve works at SpeedCurve on the interplay between performance and design. He previously served as Google's Head Performance Engineer, Chief Performance Yahoo!, and Chief Performance Officer at Fastly.",
+      "sat": true,
+      "sun": false
     }
   ],
   "isloggedinyes1": {
