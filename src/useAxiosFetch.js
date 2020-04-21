@@ -24,15 +24,16 @@ const dataFetchReducer = (state, action) =>  {
                 hasError: true,
                 errorMessage: "Data Retrieve Failure"
             };
+
         case "REPLACE_DATA":
             // The record passed (state.data) must have the attribute "id"
-            const newData = state.map(rec => {
+            const newData = state.data.map(rec => {
                 return rec.id === action.replacerecord.id ? action.replacerecord : rec;
             });
             return {
                 ...state,
                 isLoading: false,
-                hasError: false,
+                hasErrored: false,
                 errorMessage: "",
                 data: newData
             };
